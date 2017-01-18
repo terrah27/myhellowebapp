@@ -1,11 +1,11 @@
 from django.shortcuts import render
+from collection.models import Pharmacist
 
-# Create your views here.
-from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-	number = 6
+	pharmacist = Pharmacist.objects.all()
+	
 	return render(request, 'index.html',{
-		'number': number,
+		'pharmacist': pharmacist,
 		})
