@@ -1,11 +1,9 @@
 {% extends 'layouts/base.html' %}
 {% block title %}Homepage - {{ block.super }}{% endblock %}
 {% block content %}
+{% for pharmacist in pharmacists %}
 
-	<h1>Hello World</h1>
-	<p>I am a basic website.</p>
-	{% for pharmacist in pharmacist %}
-	<h2>{{ pharmacist.name }}</h2>
+	<h2><a href="{% url 'pharmacist_detail' slug=pharmacist.slug %}">{{ pharmacist.name }}</a></h2>
 	<p>{{ pharmacist.description }}</p>
-	{% endfor %}
+{% endfor %}
 {% endblock %}
